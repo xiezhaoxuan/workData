@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"tp-9325.obj" 
+TO "TP-9486-16BIT hsd280" 
+RAMSIZE(256) 

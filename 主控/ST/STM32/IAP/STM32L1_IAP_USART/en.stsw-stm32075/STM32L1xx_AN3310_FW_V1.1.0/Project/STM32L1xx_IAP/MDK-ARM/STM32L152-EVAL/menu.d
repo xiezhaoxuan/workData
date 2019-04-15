@@ -1,0 +1,14 @@
+.\stm32l152-eval\menu.o: ..\src\menu.c
+.\stm32l152-eval\menu.o: ..\inc\common.h
+.\stm32l152-eval\menu.o: d:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include\stm32l1xx.h
+.\stm32l152-eval\menu.o: d:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include\stm32l152xd.h
+.\stm32l152-eval\menu.o: ..\..\..\Libraries\CMSIS\Include\core_cm3.h
+.\stm32l152-eval\menu.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\stm32l152-eval\menu.o: ..\..\..\Libraries\CMSIS\Include\core_cmInstr.h
+.\stm32l152-eval\menu.o: ..\..\..\Libraries\CMSIS\Include\core_cmFunc.h
+.\stm32l152-eval\menu.o: d:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include\system_stm32l1xx.h
+.\stm32l152-eval\menu.o: ..\..\..\Utilities\STM32_EVAL\STM32L152D_EVAL\stm32l152d_eval.h
+.\stm32l152-eval\menu.o: ..\..\..\Utilities\STM32_EVAL\Common\stm32_eval_legacy.h
+.\stm32l152-eval\menu.o: ..\inc\flash_if.h
+.\stm32l152-eval\menu.o: ..\inc\menu.h
+.\stm32l152-eval\menu.o: ..\inc\ymodem.h

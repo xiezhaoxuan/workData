@@ -1,0 +1,130 @@
+void ILI9341_IVO2.8_Initial(void) 
+{ 
+// VCI=2.8V 
+//************* Reset LCD Driver ****************// 
+LCD_nRESET = 1; 
+delayms(1);        // Delay 1ms 
+LCD_nRESET = 0; 
+delayms(10);       // Delay 10ms // This delay time is necessary 
+LCD_nRESET = 1; 
+delayms(120);      // Delay 120 ms 
+ 
+//************* Start Initial Sequence **********// 
+write_comm8(0xCF);  
+write_data8(0x00); 
+write_data8(0xD9); 
+write_data8(0X30); 
+ 
+write_comm8(0xED);  
+write_data8(0x64); 
+write_data8(0x03); 
+write_data8(0X12); 
+write_data8(0X81); 
+ 
+write_comm8(0xE8);  
+write_data8(0x85); 
+write_data8(0x10); 
+write_data8(0x78); 
+ 
+write_comm8(0xCB);  
+write_data8(0x39); 
+write_data8(0x2C); 
+write_data8(0x00); 
+write_data8(0x34); 
+write_data8(0x02); 
+ 
+write_comm8(0xF7);  
+write_data8(0x20); 
+ 
+write_comm8(0xEA);  
+write_data8(0x00); 
+write_data8(0x00); 
+ 
+write_comm8(0xC0);    //Power control 
+write_data8(0x21);   //VRH[5:0] 
+ 
+write_comm8(0xC1);    //Power control 
+write_data8(0x12);   //SAP[2:0];BT[3:0] 
+ 
+write_comm8(0xC5);    //VCM control 
+write_data8(0x32); 
+write_data8(0x3C); 
+ 
+write_comm8(0xC7);    //VCM control2 
+write_data8(0XC1); 
+ 
+write_comm8(0x36);    // Memory Access Control 
+write_data8(0x08); 
+ 
+write_comm8(0x3A);   
+write_data8(0x55); 
+
+write_comm8(0xB1);   
+write_data8(0x00);   
+write_data8(0x18); 
+ 
+write_comm8(0xB6);    // Display Function Control 
+write_data8(0x0A); 
+write_data8(0xA2); 
+
+ 
+ 
+write_comm8(0xF2);    // 3Gamma Function Disable 
+write_data8(0x00); 
+ 
+write_comm8(0x26);    //Gamma curve selected 
+write_data8(0x01); 
+ 
+write_comm8(0xE0);    //Set Gamma 
+write_data8(0x0F); 
+write_data8(0x20); 
+write_data8(0x1E); 
+write_data8(0x09); 
+write_data8(0x12); 
+write_data8(0x0B); 
+write_data8(0x50); 
+write_data8(0XBA); 
+write_data8(0x44); 
+write_data8(0x09); 
+write_data8(0x14); 
+write_data8(0x05); 
+write_data8(0x23); 
+write_data8(0x21); 
+write_data8(0x00); 
+ 
+write_comm8(0XE1);    //Set Gamma 
+write_data8(0x00); 
+write_data8(0x19); 
+write_data8(0x19); 
+write_data8(0x00); 
+write_data8(0x12); 
+write_data8(0x07); 
+write_data8(0x2D); 
+write_data8(0x28); 
+write_data8(0x3F); 
+write_data8(0x02); 
+write_data8(0x0A); 
+write_data8(0x08); 
+write_data8(0x25); 
+write_data8(0x2D); 
+write_data8(0x0F); 
+ 
+write_comm8(0x11);    //Exit Sleep 
+delayms(120); 
+write_comm8(0x29);    //Display on 
+} 
+ 
+void LCD_Enter Sleep_ILI9341(void) 
+{ 
+write_comm8(0x28);   // Display off 
+write_comm8(0x10);   // Enter Sleep mode 
+} 
+ 
+void LCD_Exit Sleep_ILI9341(void) 
+{ 
+write_comm8(0x11);   // Sleep out 
+delayms(120); 
+write_comm8(0x29);   // Display on 
+}
+ 
+ 

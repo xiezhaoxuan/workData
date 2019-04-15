@@ -1,0 +1,16 @@
+
+How to download .bin through bootloader order:
+
+
+
+For all.bin:
+1.用户串口，进boot模式，boot拉低，按下RESET按键，波特率：921600bps
+2.输入命令:4 -dev 0，回车，
+3.选择 send ymodem，选择 all.bin, 更新即可。
+4.用户串口，status拉低，boot拉低，921600，进QC log,确认固件版本及CRC值。
+
+For ota.bin
+1.用户串口，进boot模式，boot拉低，按下RESET按键，波特率：921600bps
+2.输入命令: 1，回车，
+3.选择 send ymodem，选择 ota.bin, 更新即可。
+4.用户串口，status拉低，boot拉低，921600，进QC log,确认固件版本及CRC值。

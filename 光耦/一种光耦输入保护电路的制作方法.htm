@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head id="head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>
+	一种光耦输入保护电路的制作方法
+</title>
+<!-- Bootstrap core CSS -->
+    <link href="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/bootstrap.css" rel="stylesheet">
+<link href="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://img.xjishu.com/js/html5shiv.min.js"></script>
+      <script src="http://img.xjishu.com/js/respond.min.js"></script>
+    <![endif]--><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="applicable-device" content="pc,mobile"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="descriptio" content="本申请涉及一种电路技术领域，具体地说，涉及一种光耦输入保护电路。背景技术目前常见的输入信号检测电路中，通常通过光电耦合器隔离后再传入内部电路，这样在实现对高频干扰信号的过滤作用的同时，实现不同电气模块之间的电气隔离。但是这样的电路依然存在一个问题：如果现场需要人工接线，同时存在有源/无源，低压/高压的不同接入信号时，对于无源或低压的光耦输入检测信号输入，一旦误接入高压信号后，后面的光电耦合器以及电阻就会被击穿烧掉，这样很可能需要更换新的控制器，使得整个过程费时费力，非常麻烦，尤其是上述电路应用在">
+<meta name="keywords" content="光耦开关量输入电路专利技术,光耦输入电路专利技术,光耦隔离输入电路专利技术,光耦保护电路专利技术,光耦隔离电路专利技术,线性光耦隔离电路专利技术,光耦应用电路专利技术,光耦电路设计">
+<meta property="og:title" content="一种光耦输入保护电路的制作方法">
+<meta property="og:type" content="book">
+<meta property="og:url" content="http://www.xjishu.com/zhuanli/60/201720020059.html">
+<meta property="og:image" content="http://img.xjishu.com/img/zl/2017/10/18140573009018.gif">
+<meta property="og:site_name" content="X技术">
+<meta property="og:description" content="本申请涉及一种电路技术领域，具体地说，涉及一种光耦输入保护电路。背景技术目前常见的输入信号检测电路中，通常通过光电耦合器隔离后再传入内部电路，这样在实现对高频干扰信号的过滤作用的同时，实现不同电气模块之间的电气隔离。但是这样的电路依然存在一个问题：如果现场需要人工接线，同时存在有源/无源，低压/高压的不同接入信号时，对于无源或低压的光耦输入检测信号输入，一旦误接入高压信号后，后面的光电耦合器以及电阻就会被击穿烧掉，这样很可能需要更换新的控制器，使得整个过程费时费力，非常麻烦，尤其是上述电路应用在">
+<meta property="og:canonical" content="http://www.xjishu.com/zhuanli/60/201720020059.html">
+<meta property="og:Author" content="X技术">
+<meta property="og:Copyright" content="X技术 xjishu.com 版权所有">
+<link rel="miphtml" href="http://mip.xjishu.com/zhuanli/60/201720020059.html">
+</head>
+  <body>
+
+<nav class="navbar navbar-diy">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">X技术</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.xjishu.com/"><img src="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/logo.png" alt="X技术" width="76" height="30"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="http://www.xjishu.com/" title="X技术首页">首页</a></li>
+            <li><a href="http://www.xjishu.com/video/" title="发明视频">视频</a></li>
+          </ul>
+          <ul id="topbar1_denglu" class="nav navbar-nav navbar-right">
+            <li><a href="http://www.xjishu.com/login.aspx?form=11619539">登录</a></li>
+            <li><a href="http://www.xjishu.com/reg.aspx?form=11619539">注册</a></li>
+          </ul>
+            
+        </div><!--/.nav-collapse -->
+        <div class="navbar-form navbar-left topsearch" role="search">
+            <input type="text" class="top-control" placeholder="搜索技术资料..." id="patentText" onkeydown="if(event.keyCode==13){patentS(); return false;}">
+            <button type="submit" class="btn btn-so" onclick="patentS();return false;"></button>
+          </div>
+          
+      </div>
+    </nav>
+<div class="wrap">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+                <div class="col-box">
+                    <div class="col-article">
+                        <div class="art-header">
+                            <h1 class="title">
+                                一种光耦输入保护电路的制作方法
+                            </h1>
+                            <div class="art-meta"><span>文档序号：11619539</span><span></span></div>
+                            <div class="art-meta"><span>导航：<a href="http://www.xjishu.com/" title="X技术首页"> X技术</a>&gt;<a href="http://www.xjishu.com/zhuanli/" title="最新专利"> 最新专利</a>&gt;<a href="http://www.xjishu.com/zhuanli/60/" title="发电;变电;配电装置的制造技术类专利技术">发电;变电;配电装置的制造技术</a></span></div>
+                        </div>
+                        <div class="con-box" style="height: 1388px; overflow: hidden;">
+                        <div class="art-body">
+                            <img src="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/18140573009018.gif" alt="一种光耦输入保护电路的制造方法与工艺"><br><p>本申请涉及一种电路技术领域，具体地说，涉及一种光耦输入保护电路。</p><p><br><br><b>背景技术：</b><br></p><p>目
+前常见的输入信号检测电路中，通常通过光电耦合器隔离后再传入内部电路，这样在实现对高频干扰信号的过滤作用的同时，实现不同电气模块之间的电气隔离。但
+是这样的电路依然存在一个问题：如果现场需要人工接线，同时存在有源/无源，低压/高压的不同接入信号时，对于无源或低压的光耦输入检测信号输入，一旦误
+接入高压信号后，后面的光电耦合器以及电阻就会被击穿烧掉，这样很可能需要更换新的控制器，使得整个过程费时费力，非常麻烦，尤其是上述电路应用在类似电
+梯等工业领域，涉及到人身安全问题时，电路对异常工况的保护就显得尤为重要。</p><p>针对上述问题，希望提出一种具有异常信号自我保护和异常信号撤销自恢复，以及保护动作检测功能的光耦输入保护电路。</p><p><br><br><b>技术实现要素：</b><br></p><p>为了解决上述技术问题，本申请公开了一种光耦输入保护电路。</p><p>一种光耦输入保护电路，包括信号输入单元，输入保护电路和光电耦合器，信号输入单元依次与输入保护电路、光电耦合器连接；</p><p>信号输入单元的IN端口分别与光电耦合器连接，光电耦合输入回路中，有二极管对反向高压进行截止；</p><p>信号输入单元的COM端口和内部电路之间串联自恢复保险丝；</p><p>信号输入单元的IN端口分别通过二极管和内部COM1相连；</p><p>进一步地，还包括一保护动作检测电路，保护动作检测电路包括光电耦合器、反向二极管和限流电阻；</p><p>进一步地，信号输入单元是无源信号输入；</p><p>进一步地，信号输入单元包括若干个信号输入端口以及一个输入公共端接口；</p><p>进一步地，信号输入单元的IN端口与光电耦合输入回路中的二极管的极性方向分别始终和光电耦合器的输入端极性方向一致；</p><p>进一步地，信号输入单元的IN端口分别通过一正向的二极管和内部公共端COM1相连；</p><p>进一步地，信号输入单元的IN端口分别通过一反向的二极管和内部公共端COM1相连；</p><p>进一步地，光耦输入保护电路的二极管和自恢复保险丝均为耐高压。</p><p>与
+现有技术相比，本申请一方面避免了当误接高压信号到信号输入端，使光电耦合器被烧掉导致电路故障所造成的维修费时费力问题；另一方面，由于接入了保护动作
+检测电路，当信号输入单元的COM端口与任一IN端口之间有非正常的反向电压时，电流通过自恢复保险丝和旁路二极管直接在COM和对应的IN端口间形成回
+路，自恢复保险丝通过超额定电流后产生自熔断(高阻)，进而保护了光电耦合器以及其他内部电路，同时，通过保护动作检测电路中光电耦合器的导通与否，可以
+提示当前自恢复保险丝是否发生断开；最后，自恢复保险丝具有可自动复原的性能，可减少产品的返修和服务的次数，从而降低了成本。</p><p>当然，实施本申请的任一产品并不一定需要同时达到以上所述的所有技术效果。</p><p>附图说明</p><p>此处所说明的附图用来提供对本申请的进一步理解，构成本申请的一部分，本申请的示意性实施例及其说明用于解释本申请，并不构成对本申请的限定。在附图中：</p><p>图1是现有常见的光耦输入检测电路。</p><p>图2是本申请改进后的带保护功能的光耦输入检测电路一。</p><p>图3是本申请改进后的带保护功能的光耦输入检测电路二。</p><p>具体实施方式</p><p>以下将配合附图及实施例来详细说明本申请的实施方式，藉此对本申请如何应用技术手段来解决技术问题并达成技术功效的实现过程能充分理解并据以实施。</p><p>如
+图1所示，现有常用的光耦输入检测电路，输入信号通过光电耦合器隔离后再传入内部电路，在实现对高频干扰信号的过滤作用的同时，实现不同电气模块之间的电
+气隔离。但是这样的电路依然存在问题：一旦介入高压信号后，后面的光电耦合器以及电阻就会击穿烧掉，这样需要立即更换新的控制器，使得整个过程比较麻烦，
+而且费时费力。</p><p>如图2所示，本申请改进的带保护功能的光耦输入检测电路一，包括信号输入单元，输入保护电路和若干个光电耦合器。</p><p>信
+号输入单元包括若干个IN端口和一个COM端口(公共端口)。信号输入单元一般是无源信号，比如继电器输出触点之类等。如图2所示，正常工作时，当信号输
+入单元的IN端口(IN1～IN4)和COM端口(公共端口)短接时，此时，与对应IN端口连接的光电耦合器输入端导通，这时该光电耦合器输出端为低电平
+“0”，当信号输入单元的IN端口(IN1～IN4)和COM端口(公共端口)断开时，此时，与对应IN端口连接的光电耦合器输入端不导通，这时该光电耦
+合器输出端为高电平“1”。</p><p>由于光电耦合器输入端的发光源多为发光二极管，它的导通电流和反向击穿电压一般都较小，在使用时，如果有误接入高压信号，容易造成光电耦合器的烧毁。</p><p>输
+入保护电路：通过在信号输入单元的IN端口(IN1～IN4)分别通过一个反向耐高压二极管(D1～D4)与一个光电耦合器的阴极输入端连接，这样做的目
+的是为了防止高压信号通过IN端口接入光电耦合器的阴极输入，引起光电耦合器输入端的反向高压击穿；信号输入单元的COM端口和内部公共端COM1之间串
+联一个自恢复保险丝，当流经公共端的电流大于保险丝的保护值时，通过保险熔断，自动断开公共端，保护后续电路；</p><p>还包括旁路电路：在信号输入
+单元的IN端口分别通过一二极管(D11～D14)和内部公共端COM1相连，此时，二极管为IN端口到公共端COM1的反向二极管，当高压信号接入公共
+端COM1，经过自恢复保险丝，通过反向二极管(D11～D14)直接回到IN端口，产生的大短路电流直接将自恢复保险电路熔断(高阻)，保护后续电路。</p><p>当外部异常信号撤销后，自恢复保险电路能够自动恢复(低阻)，保证电路的正常工作。</p><p>进一步地，该改进电路还包括自恢复保险的保护动作检测电路，其包括一光电耦合器、一反向二极管(D5)和限流电阻，信号输入单元的COM端口通过一个反向二极管(反向电压截止)与光电耦合器的阴极输入端连接；光电耦合器的阳极输入端通过限流电阻连接内部电源V<sub>DD</sub>；当自恢复保险没有动作时，保护动作检测电路中的光电耦合器能够导通，这时该光电耦合器输出端为低电平“0”，当自恢复保险动作时，由于回路断开，保护动作检测电路中的光电耦合器不能够导通，这时该光电耦合器输出端为高电平“1”。</p><p>控制器可以通过对保护动作检测电路的光电耦合器输出信号的检测，来判断保护动作检测电路是否动作，并给用户相关的提示。</p><p>下面结合实施例具体说明：</p><p>如图2所示，实施例一：当前IN端口任意两个端口之间为高压时，例如，当V<sub>IN1</sub>＝220V,V<sub>IN2</sub>＝0V时，由于与IN1端口连接的二极管(D1)的反向电压截止作用，使得整个电路不能形成回路，此时，分别与IN1端口和IN2端口连接的光电耦合器并未受到此高压输入的影响，使其受到保护不会被烧掉。</p><p>如图2所示，实施例二：当前有IN端口为高电压，COM端口为低电压时，例如，当V<sub>IN1</sub>＝220V,V<sub>COM</sub>＝0V时，由于与IN1端口连接的二极管(D1)的反向电压截止作用，使得整个电路不能形成回路，对应的光电耦合器不被高压击穿烧掉。</p><p>如图2所示，实施例三：当前COM端口为高电压，有IN端口为低电压时，例如，当V<sub>IN1</sub>＝0V,V<sub>COM</sub>＝220V
+时，此时，与低电压的IN端口连接的二极管(D11)旁路导通，形成短路回路，自恢复保险丝(L1)熔断，与IN端口连接的光电耦合器没有大电流经过，保
+证了所述光电耦合器不会被烧掉。保护动作检测电路的光耦输入端由于自恢复保险的高阻状态，由原来的导通状态切换为不能导通状态，在保护动作检测电路的光电
+耦合器输出端检测到输出信号跳变，提示当前自恢复保险丝发生熔断，控制板根据这个检测光耦的状态变化可以检测到自恢复保险的动作。</p><p>如图3所示，是本申请改进的带保护功能的光耦输入检测电路二，包括信号输入单元，输入保护电路和若干个光电耦合器。与图2的电路相比，还有以下区别：</p><p>旁路电路：信号输入单元的IN端口分别通过一二极管(D11～D14)和内部公共端COM1相连，此时，二极管为IN端口到公共端COM1的正向二极管，此时公共端连接V<sub>DD</sub>，当低压信号通过公共端V<sub>DD</sub>，经过自恢复保险电路，通过二极管(D11～D14)直接回到IN端口，保护后续电路。公共端自恢复保险电路的自恢复保险连接于IN端口和V<sub>DD</sub>端口之间。</p><p>输
+入信号光耦回路：图2信号输入单元的IN端口先连接反向保护二极管后再和光电耦合器的阴极连接；图3信号输入单元的IN端口先和光电耦合器的阳极连接，光
+电耦合器的阴极再连接反向保护二极管；但是以上2种电路的输入信号光耦回路中的反向保护二极管的极性方向都和光电耦合器的输入端极性方向一致。在具体实施
+时图2的反向保护二极管在输入信号光耦回路中的连接位置同样可以适用于图3。</p><p>如图3所示，还可以通过在信号输入单元的IN端口(IN1～IN4)分别与光电耦合器的阳极输入端连接后又与一个反向耐高压的二极管(D1～D4)连接。</p><p>如图3所示，实施例四：当前IN端口任意两个端口之间为高压时，例如，当V<sub>IN1</sub>＝220V,V<sub>IN2</sub>＝0V时，由于与IN2端口连接的二极管(D2)的反向电压截止作用，使得整个电路不能形成回路，此时，分别与IN1端口和IN2端口连接的光电耦合器并未受到此高压输入的影响，使其受到保护不会被烧掉。</p><p>如图3所示，实施例五：当前有IN端口为低电压，COM端口为高电压时，例如，当V<sub>IN1</sub>＝0V,V<sub>COM</sub>＝220V时，由于与IN1端口连接的二极管(D1)的反向电压截止作用，使得整个电路不能形成回路，对应的光电耦合器不被高压击穿烧掉。</p><p>如图3所示，实施例六：当前COM端口为低电压，有IN端口为高电压时，例如，当V<sub>IN1</sub>＝220V,V<sub>COM</sub>＝0V
+时，此时，与高电压的IN端口连接的二极管(D11)旁路导通，形成短路回路，自恢复电路中的自恢复保险丝(L1)熔断，与IN端口连接的光电耦合器没有
+大电流经过，保证了所述光电耦合器不会被烧掉。保护动作检测电路的光耦输入端由于自恢复保险的高阻状态，由原来的导通状态切换为不能导通状态，在保护动作
+检测电路的光电耦合器输出端检测到输出信号跳变，提示当前自恢复保险丝发生熔断，控制板根据这个检测光耦的状态变化可以检测到自恢复保险的动作。</p><p>在具体应用时，用户可以根据实际情况选择更多端口的信号输入单元，并不仅限于本申请中提到的此类型。</p><p>所述光耦输入保护电路的二极管和自恢复保险丝均为耐高压。</p><p>上述电路设计可以应用在直流电压或交流电压输入保护中。</p><p>接入电路的类型可以根据实际情况而定，没有具体限制。</p><p>以上述依据本实用新型的理想实施例为启示，通过上述的说明内容，相关工作人员完全可以在不偏离本项实用新型技术思想的范围内，进行多样的变更以及修改。本项实用新型的技术性范围并不局限于说明书上的内容，必须要根据权利要求范围来确定其技术性范围。</p>
+                        </div>
+                        </div>
+                        <div class="gradBox" style="display: block;">
+                            
+                        </div>
+                        <div class="readBox" style="display: block;">
+                            <span class="readButton">再多了解一些</span>
+                        </div>
+                        <div class="art-download">
+                                <a href="http://www.xjishu.com/zhuanli/down/11619539.html" class="btn btn-load" target="_blank"><span>完整全部详细技术资料下载</span></a>
+                            </div>
+                            
+                    </div>
+                    <div class="pages">当前第1页<a href="http://www.xjishu.com/zhuanli/60/201720020059.html" class="current">1</a>&nbsp;<a href="http://www.xjishu.com/zhuanli/60/201720020059_2.html">2</a>&nbsp;<a href="http://www.xjishu.com/zhuanli/60/201720020059_3.html">3</a>&nbsp;</div>
+                    <div class="col-art-footer">
+                        <ul>
+                            <li><span>上一篇：</span><a href="http://www.xjishu.com/zhuanli/20/201710328627.html">一种用于潮湿环境的增强型光缆的制造方法与工艺</a></li><li><span>上一篇：</span><a href="http://www.xjishu.com/zhuanli/20/201610060765.html">自承式皮线缆跳纤剥线钳的制造方法与工艺</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-art-footer">
+                        
+                        </div>
+                </div>
+                <div class="col-box">
+                    <div class="col-sub-tit"><span class="tit">相关技术</span></div>
+                    <div class="col-body">
+                        <ul class="col-relation">
+                            
+                            
+                            
+
+
+                                <li><a href="http://www.xjishu.com/zhuanli/60/201720030941.html" title="一种防爆盒的制造方法与工艺">一种防爆盒的制造方法与工艺</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201621424017.html" title="具有免开启检测功能的室内型高压电缆交叉互联接地箱的制造方法与工艺">具有免开启检测功能的室内型高...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201720060269.html" title="一种储气井检测装置的电缆导向机构的制造方法">一种储气井检测装置的电缆导向...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201621147353.html" title="一种用于山地光伏电站的电缆松紧装置的制造方法">一种用于山地光伏电站的电缆松...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201720062985.html" title="一种MPP电力电缆保护管的制造方法与工艺">一种MPP电力电缆保护管的制...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201720064893.html" title="高压输电线路爆破除冰装置的制造方法">高压输电线路爆破除冰装置的制...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201621479017.html" title="一种高压输电线架空防风偏闪络装置的制造方法">一种高压输电线架空防风偏闪络...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201620645234.html" title="一种多功能铝合金线夹的制造方法与工艺">一种多功能铝合金线夹的制造方...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201720032778.html" title="一种宽带接入用综合配线箱的制造方法与工艺">一种宽带接入用综合配线箱的制...</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201621483494.html" title="一体式晶须改性树胶电缆桥架的制造方法与工艺">一体式晶须改性树胶电缆桥架的...</a></li>
+
+
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-box">
+                    <div class="col-sub-tit">
+                        <span class="tit">网友询问留言</span>
+                        <span class="raty-tit">已有<i>0</i>条留言</span>
+                    </div>
+                    <div class="col-body col-comment-main">
+                        <div class="comment-list">
+                            <span id="liuyan"></span>
+                            <ul>
+
+                                								
+
+						
+<li>还没有人留言评论。精彩留言会获得点赞！</li>
+
+
+                            </ul>
+                        </div>
+                        <div class="pages">
+                         <a href="#" class="current">1</a> 
+                    </div>
+                        <!-- 评价 -->
+                        <div class="col-comment">
+                            <div class="comment-box">
+                              <textarea name="beizhu" id="beizhu" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="comment-footer">
+                                <div class="comment-text">精彩留言，会给你点赞！</div>
+                                <button class="btn btn-submit" onclick="add_fb('11619539')" id="tijiaohuifu">发布评论</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" id="fenlei">
+                
+                    <div class="col-box"><div class="col-box-header"><span><a href="###">光耦开关量输入电路相关技术</a></span></div><div class="col-box-list"><ul><li><a href="http://www.xjishu.com/zhuanli/52/CN105116200.html">一种兼容开关量和电平量的检测电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN204794059.html">一种模拟量输入端口的防护电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN204721332.html">一种应用于工程机械开关量输入信号的复用电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN204652345.html">一种新型开关量输入电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/54/CN204536809.html">一种智能开关量输入与输出模块的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/54/CN204496258.html">一种实现伺服电控模拟量输入的电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN204481783.html">开关量信号保护电路及具有该电路的控制装置的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN204349794.html">一种开关信号输入电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/52/CN204330870.html">一种开关量信号检测电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/200720120450.html">一种基于切换开关的输入电路的制作方法</a></li></ul></div></div><div class="col-box"><div class="col-box-header"><span><a href="###">光耦隔离输入电路相关技术</a></span></div><div class="col-box-list"><ul><li><a href="http://www.xjishu.com/zhuanli/60/CN105186839.html">一种光耦隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN105140875.html">一种车载电源输出光耦隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN105048840.html">一种光耦隔离单级可升降压车载电源逆变器的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/52/CN204666207.html">基于iCoupler磁耦隔离器的涡街流量计的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN204408313.html">一种多功能信号输入隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN104716950.html">一种多功能信号输入隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/63/201420146997.html">一种采用高速光耦隔离技术的多种模式调光驱动电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/63/201120233220.html">一种光耦隔离式驱动单元电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/201220061743.html">Mic输入电路及车载系统的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/201210273608.html">基于双光耦的高速双向通信隔离电路的制作方法</a></li></ul></div></div><div class="col-box"><div class="col-box-header"><span><a href="###">光耦隔离电路相关技术</a></span></div><div class="col-box-list"><ul><li><a href="http://www.xjishu.com/zhuanli/61/CN205647489.html">设有电流隔离电路的ai装置及电流隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/54/CN205620848.html">一种电路隔离结构的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/18/CN205594935.html">基于单片机控制的隔离型积分电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN205584174.html">光耦隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN205566263.html">一种pwm控制电流信号隔离变送集成电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN205566256.html">一种交流负载隔离控制电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN205566128.html">一种基于pfc与pwm的隔离电源转换器的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN205565702.html">一种变频器igbt短路保护回路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN205544935.html">光耦隔离式高压线性降压电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/52/CN205539190.html">具有主备计量和存储的三相电子式电能表的制作方法</a></li></ul></div></div><div class="col-box"><div class="col-box-header"><span><a href="###">线性光耦隔离电路相关技术</a></span></div><div class="col-box-list"><ul><li><a href="http://www.xjishu.com/zhuanli/60/CN205544935.html">光耦隔离式高压线性降压电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN205430205.html">光耦隔离场管驱动电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN106059566.html">基于线性光电耦合器进一步线性化的电路及其实现方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN105977921.html">一种隔离电源过流关断延迟保护电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/50/CN105927778.html">一种用于核电厂电动隔离阀的控制电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN205356299.html">隔离控制电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN205356138.html">一种基于非线性光耦实现的低损启动电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN205320058.html">一种新型采用非线性光耦实现信号线性隔离电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/52/CN205317377.html">一种基于线性光耦的压力传感器的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN205178858.html">光耦隔离输出模块的制作方法</a></li></ul></div></div><div class="col-box"><div class="col-box-header"><span><a href="###">光耦应用电路相关技术</a></span></div><div class="col-box-list"><ul><li><a href="http://www.xjishu.com/zhuanli/61/CN105391441.html">低速光耦加速电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/CN105375986.html">光接收电路和光耦合装置的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/CN105375985.html">光接收电路和光耦合装置的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/59/CN105118932.html">像素储墨槽的制备方法及应用</a></li><li><a href="http://www.xjishu.com/zhuanli/55/CN104914971.html">一种pc网口电路结构的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/52/CN204330854.html">一种用于电能表的提高光耦传输可靠性电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN104684175.html">一种光耦反馈led恒流驱动电路及led照明设备的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/CN104660193.html">线性光耦传输模拟信号电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/63/200710097487.html">耦接机构及应用其的显示器的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/201220117856.html">一种负荷监测仪低速光耦的高速通讯电路的制作方法</a></li></ul></div></div><div class="col-box"><div class="col-box-header"><span><a href="###">光耦电路设计相关技术</a></span></div><div class="col-box-list"><ul><li><a href="http://www.xjishu.com/zhuanli/61/CN104684175.html">一种光耦反馈led恒流驱动电路及led照明设备的制造方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/CN104578758.html">一体化电源的光耦电源采样和稳压电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/201220117856.html">一种负荷监测仪低速光耦的高速通讯电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/201420758128.html">基于高速光耦的远距离传输电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/62/200680011775.html">电光耦合装置的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/201420618486.html">一种两光耦rs485电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/201020204448.html">一种低速光耦加速电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/61/200810037135.html">光耦加速电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/60/201020241085.html">无光耦的待机保护电路的制作方法</a></li><li><a href="http://www.xjishu.com/zhuanli/55/200580013931.html">用于光耦合检测的电路和过程的制作方法</a></li></ul></div></div> 
+            </div>
+          </div>
+      </div>
+    </div>
+      
+
+    <div class="footer">
+        <p>
+            
+    <a href="http://www.xjishu.com/about_2.html">关于X技术</a><span class="line">|</span>
+    
+    <a href="http://www.xjishu.com/about_3.html">联系X技术</a><span class="line"></span>
+    
+
+        </p>
+        <p> © 2008-2018 <a href="http://www.xjishu.com/baidulist.aspx" target="_blank">【X技术】</a> 版权所有，并保留所有权利。津ICP备16005673号-3</p>
+    </div>    
+    <script src="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/hm.js"></script><script src="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/jquery_002.js"></script>
+    <script src="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/bootstrap.js"></script>
+<script src="%E4%B8%80%E7%A7%8D%E5%85%89%E8%80%A6%E8%BE%93%E5%85%A5%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF%E7%9A%84%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95_files/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var winWidth = document.documentElement.clientWidth;
+            var winHeight = document.documentElement.clientHeight;
+            $('.login-wrap').height(winHeight - 50 - 84);
+
+        });
+
+        $(window).resize(function () {
+            var winWidth = document.documentElement.clientWidth;
+            var winHeight = document.documentElement.clientHeight;
+            $('.login-wrap').height(winHeight - 50 - 84);
+
+        }).resize();
+    </script>
+<script>
+    $(function () {
+        $("img.lazyload").lazyload();
+    });
+    //统计代码
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?aaaa4fcab8951756d12a97d89a0c0a58";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+      
+  
+ 
+
+
+<script type="text/javascript">
+    //遮罩效果
+    var artHeight = $('.art-body').height();
+    var conBox = $('.con-box');
+    var readBox = $('.readBox');
+    var gradBox = $('.gradBox');
+    var readButton = $('.readButton');
+    var yc1 = parseInt(artHeight * 0.2);
+    var yc2 = parseInt(artHeight * 0.3);
+    var $div = $('.art-body');
+    $imgs = $div.find('img');
+    if ($imgs.length > 0) {
+        yc1 = yc1 + 500;
+        yc2 = yc2 + 700;
+    }
+    if (artHeight >= 600) {
+        readBox.show();
+        gradBox.show();
+        conBox.height(yc1); 
+        conBox.css({ 'overflow': 'hidden' });
+
+        readButton.click(function () {
+            conBox.height(yc2);
+            gradBox.toggleClass("gradBox2", "gradBox2");
+            readBox.hide();
+        });
+    }
+    //留言处理
+    function add_fb(pid) {
+        $("#tijiaohuifu").html("提交中...");
+        var con = $("#beizhu").val();
+        //alert(con);
+        if (con.lenth == 0) { alert("请输入留言内容"); return; }
+        var dddd = new Date();
+
+        if (con == "") { alert("请输入留言内容"); } else {
+            $.post('http://www.xjishu.com/ashx/AddHuifu.ashx', { "pid": pid, "c": con, "tb": "C", "ty": "1" }, function (json) {
+                if (json.data >= 1) {
+                    var myDate = new Date();
+                    $("#liuyan").html("<li>本地地址<br>" + con + "<br><div>发表于：" + myDate.toLocaleString() + "</div></li>");
+                    alert("回复成功！刷新本页后可以看到。");
+                    $("#beizhu").val("");
+                    $("#tijiaohuifu").val("评论成功");
+                }
+                else if (json.data < 0) {
+                    alert("短时间禁止重复留言！");
+                } else {
+                    alert("留言失败，请联系管理员！");
+                }
+            });
+        }
+    }
+    function zan(id, pid) {
+
+        var flags2 = 0;
+        $.ajax({
+            type: "POST",
+            url: 'http://www.xjishu.com/ashx/AddHuifu.ashx?zan=' + id + '&pid=' + pid,
+            cache: false,
+            async: false,
+            success: function (json) {
+                flags2 = json.data;
+                if (flags2 == 2) {
+                    alert("您已经点过赞了");
+                }
+                if (flags2 == 1) {
+                    alert("点赞成功！");
+                }
+                if (flags2 == 0) {
+                    alert("点赞失败，可能网络有问题");
+                }
+            }
+        })
+        $("#t" + id).html(parseInt($("#t" + id).html()) + 1);
+    }
+</script>
+
+</body></html>

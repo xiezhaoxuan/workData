@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{16797b50-4a3e-4d90-b4f1-d220f685df7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{0352585e-9bc4-4478-b687-c3d9aecf4c2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl">
+      <UniqueIdentifier>{756935a8-9423-4126-8cf8-514dc3c7bef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl\unix">
+      <UniqueIdentifier>{dfe3b50b-6e3a-4337-a947-0902eb695e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl\windows">
+      <UniqueIdentifier>{2dc2fb87-4fab-41e8-a7ed-b55ae2b8eaae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\locker.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\serial.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\v8stdint.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ydlidar_driver.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\impl\unix\unix.h">
+      <Filter>src\impl\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\impl\unix\unix_serial.h">
+      <Filter>src\impl\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\impl\unix\unix_timer.h">
+      <Filter>src\impl\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="include\thread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\impl\windows\win.h">
+      <Filter>src\impl\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\impl\windows\win_serial.h">
+      <Filter>src\impl\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\impl\windows\win_timer.h">
+      <Filter>src\impl\windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\serial.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ydlidar_driver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\impl\unix\unix_serial.cpp">
+      <Filter>src\impl\unix</Filter>
+    </ClCompile>
+    <ClCompile Include="src\impl\unix\unix_timer.cpp">
+      <Filter>src\impl\unix</Filter>
+    </ClCompile>
+    <ClCompile Include="src\impl\windows\win_serial.cpp">
+      <Filter>src\impl\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\impl\windows\win_timer.cpp">
+      <Filter>src\impl\windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

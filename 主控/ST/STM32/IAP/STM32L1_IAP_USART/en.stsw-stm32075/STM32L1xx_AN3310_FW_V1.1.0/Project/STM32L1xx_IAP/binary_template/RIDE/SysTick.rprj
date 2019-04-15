@@ -1,0 +1,4 @@
+
+<Project Header="Project 'Project'" Path=".\SysTick.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="Project" >
+	<ApplicationBuild Header="Project" Extern=".\STM32L152-EVAL_SysTick.rapp" Path=".\STM32L152-EVAL_SysTick.rapp" OutputFile=".\STM32L152-EVAL\STM32L152-EVAL_SysTick.elf" sate="98" Config="STM32L152-EVAL" />
+</Project>

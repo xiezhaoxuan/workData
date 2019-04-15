@@ -1,0 +1,11 @@
+#Thu Dec 15 10:29:44 GMT+01:00 2011
+BOARD=None
+CODE_LOCATION=
+ENDIAN=Little-endian
+MCU=STM32L152VB
+MCU_VENDOR=STMicroelectronics
+MODEL=Lite
+PROJECT_FORMAT_VERSION=2
+TARGET=STMicroelectronics\u00AE STM32\u2122
+VERSION=2.2.0
+eclipse.preferences.version=1

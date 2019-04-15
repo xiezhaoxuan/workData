@@ -1,0 +1,4 @@
+if exist .\..\RIDE\STM32L152-EVAL\STM32L152-EVAL_SysTick.hex (hex2bin.exe  .\..\RIDE\STM32L152-EVAL\STM32L152-EVAL_SysTick.hex)
+if exist .\..\RIDE\STM32L152D-EVAL\STM32L152-EVAL_SysTick.hex (hex2bin.exe  .\..\RIDE\STM32L152D-EVAL\STM32L152-EVAL_SysTick.hex)
+if exist .\..\TASKING\STM32L152D-EVAL\Debug\STM32L152D-EVAL.hex (hex2bin.exe  .\..\TASKING\STM32L152D-EVAL\Debug\STM32L152D-EVAL.hex)
+pause

@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: MB1066.PcbDoc   1/29/2013  10:05:58 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : MB1066.TXT
+EIA File   : MB1066.DRL
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.2mm (7.874mil)         Round          19               50.85 mm (2.00 Inch)
+T2        0.3mm (11.811mil)        Round          27               124.98 mm (4.92 Inch)
+T3        0.65mm (25.591mil)       Round          2                21.00 mm (0.83 Inch)
+T4        3.2mm (125.984mil)       Round          2                41.18 mm (1.62 Inch)
+---------------------------------------------------------------------------
+Totals                                            50               238.01 mm (9.37 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -1,0 +1,11 @@
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of Project [MB1066.PrjPCB]
+   Generated File[Pick Place for MB1066.txt]
+   Generated File[Pick Place for MB1066.csv]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 10:08:18 AM On 1/29/2013

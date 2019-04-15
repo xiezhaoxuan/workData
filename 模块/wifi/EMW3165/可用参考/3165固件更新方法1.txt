@@ -1,0 +1,49 @@
+
+1：先把3165的Bootloader.bin文件，使用JFLASH烧写到模块里，JFLASH的地址设置成 08000000.
+   工具使用Jlink.
+
+   打开JFLASH.		Option  ---  Project settings
+
+                       Target Interface
+
+                       选择SWD接口。  SWD speed before init  选择自动选择。
+                                      SWD speed after init   选择自动选择。
+                        
+
+                       CPU    
+
+                       选择device
+
+                       选择芯片型号 --- STM32F411RE.
+
+
+                       确定。
+
+
+    导入要烧写的BIN文件：
+
+                       File  ------  Open Data File.
+                                     地址设置成08000000.
+                       Target ------ Connect
+                       擦除
+		       烧写
+
+
+
+
+2：再使用超级终端烧写RF driver和APP。
+
+   1: 有了Bootloader后，把3165的烧写口连接到串口转USB上，BOOT管脚拉低。
+
+   2：打开超级终端，在设置串口时，选择对应COM口，选择921600波特率。流控关掉。 	最终打开超级终端。
+
+   3: 复位3165(按一下3165评估板上的复位键)，超级终端上会打印出BOOT的相关信息。
+
+   4：然后输入2，烧写RF driver.  以Y模式发送RF driver的BIN文件。
+
+   5：然后输入1，烧写APP.  以Y模式发送APP的BIN文件。
+    
+
+
+
+

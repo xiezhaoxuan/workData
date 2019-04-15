@@ -1,0 +1,120 @@
+void ILI9341_HSD2.8_Initial(void) 
+{ 
+// VCI=2.8V 
+//************* Reset LCD Driver ****************// 
+LCD_nRESET = 1; 
+Delayms(100);       // Delay 1ms 
+LCD_nRESET = 0; 
+Delayms(2Delayms(00);       // Delay 10ms // This delay time is necessary 
+LCD_nRESET = 1; 
+Delayms(300);       // Delay 120 ms 
+ 
+//************* Start Initial Sequence **********// 
+comm_out(0xCF);  
+data_out(0x00); 
+data_out(0xCB); 
+data_out(0X30); 
+ 
+comm_out(0xED);  
+data_out(0x64); 
+data_out(0x03); 
+data_out(0X12); 
+data_out(0X81); 
+ 
+comm_out(0xE8);  
+data_out(0x85); 
+data_out(0x10); 
+data_out(0x7A); 
+ 
+comm_out(0xCB);  
+data_out(0x39); 
+data_out(0x2C); 
+data_out(0x00); 
+data_out(0x34); 
+data_out(0x02); 
+ 
+comm_out(0xF7);  
+data_out(0x20); 
+ 
+comm_out(0xEA);  
+data_out(0x00); 
+data_out(0x00); 
+ 
+comm_out(0xC0);    //Power control 
+data_out(0x21);   //VRH[5:0] 
+ 
+comm_out(0xC1);    //Power control 
+data_out(0x11);   //SAP[2:0];BT[3:0] 
+ 
+comm_out(0xC5);    //VCM control 
+data_out(0x30);    //0X3F
+data_out(0x29);    //0X3C
+ 
+comm_out(0xC7);    //VCM control2 
+data_out(0XAF);    //0XAF
+ 
+comm_out(0x36);    // Memory Access Control 
+data_out(0x08); 
+ 
+comm_out(0x3A);   
+data_out(0x55); 
+
+comm_out(0xB1);   
+data_out(0x00);   
+data_out(0x1B); 
+ 
+comm_out(0xB6);    // Display Function Control 
+data_out(0x0A); 
+data_out(0xA2); 
+
+comm_out(0xF6);    
+data_out(0x01); 
+data_out(0x30); 
+ 
+comm_out(0xF2);    // 3Gamma Function Disable 
+data_out(0x00); 
+ 
+comm_out(0x26);    //Gamma curve selected 
+data_out(0x01); 
+ 
+comm_out(0xE0);    //Set Gamma 
+data_out(0x0F); 
+data_out(0x23); 
+data_out(0x20); 
+data_out(0x0C); 
+data_out(0x0F); 
+data_out(0x09); 
+data_out(0x4E); 
+data_out(0XA8); 
+data_out(0x3D); 
+data_out(0x0B); 
+data_out(0x15); 
+data_out(0x06); 
+data_out(0x0E); 
+data_out(0x08); 
+data_out(0x00); 
+ 
+comm_out(0XE1);    //Set Gamma 
+data_out(0x00); 
+data_out(0x1C); 
+data_out(0x1F); 
+data_out(0x03); 
+data_out(0x10); 
+data_out(0x06); 
+data_out(0x31); 
+data_out(0x57); 
+data_out(0x42); 
+data_out(0x04); 
+data_out(0x0A); 
+data_out(0x09); 
+data_out(0x31); 
+data_out(0x37); 
+data_out(0x0F); 
+ 
+comm_out(0x11);    //Exit Sleep 
+Delayms(300); 
+comm_out(0x29);    //Display on 
+} 
+ 
+ 
+ 

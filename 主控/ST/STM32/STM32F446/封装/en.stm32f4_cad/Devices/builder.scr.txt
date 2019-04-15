@@ -1,0 +1,3 @@
+skill load "E:/常用资料/主控/ST/STM32/STM32F446/封装/en.stm32f4_cad/Devices/builder.ile" 
+skill changeWorkingDir "E:/常用资料/主控/ST/STM32/STM32F446/封装/en.stm32f4_cad/Devices" 
+exit 

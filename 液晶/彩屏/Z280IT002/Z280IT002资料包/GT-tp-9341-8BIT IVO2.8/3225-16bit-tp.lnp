@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"tp-9325.obj" 
+TO "3225-16bit-tp" 
+RAMSIZE(256) 

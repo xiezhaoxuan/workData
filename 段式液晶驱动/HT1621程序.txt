@@ -1,0 +1,580 @@
+HT1621程序头文件（zhuan）2009年12月01日 星期二 14:08白沙老师的
+
+//这里是符号对应的显示顺序，也就对应了在HT1621B数据寄存器内的位置
+#define    _lcd_BUSY     0       
+#define    _lcd_AC      1       
+#define    _lcd_PLUS     2       
+#define    _lcd_F1      3
+#define    _lcd_ERROR    4
+#define    _lcd_DC      5
+#define    _lcd_MINUS     6
+#define    _lcd_F2      7
+#define    _lcd_DOT0     12
+#define    _lcd_AUTO     20
+#define    _lcd_RUN      24
+#define    _lcd_PAUSE     25
+#define    _lcd_DOT1     26
+#define    _lcd_COLON0    27
+#define    _lcd_DOT2     32
+#define    _lcd_STOP     40
+#define    _lcd_KPA      44
+#define    _lcd_SETUP     45
+#define    _lcd_DOT3     46
+#define    _lcd_COLON1    47
+#define    _lcd_DOT4     52
+#define    _lcd_KG      60
+#define    _lcd_MM      64
+#define    _lcd_KM      65
+#define    _lcd_L       66
+#define    _lcd_M3      67
+#define    _lcd_DB      68
+#define    _lcd_PERCENT   69
+#define    _lcd_OHOM     70
+#define    _lcd_DEGREE    71
+#define    _lcd_A       72
+#define    _lcd_V       73
+#define    _lcd_MHZ      74
+#define    _lcd_KW    75
+#define    _lcd_MA    76
+#define    _lcd_MV    77
+#define    _lcd_KHZ    78
+#define    _lcd_W     79
+#define    _lcd_NG    80
+#define    _lcd_OK    81
+#define    _lcd_RX    82
+#define    _lcd_TX    83
+#define    _lcd_FM    84
+#define    _lcd_PM    85
+#define    _lcd_AM    86
+#define    _lcd_CARD   87
+#define    _lcd_AT3    88
+#define    _lcd_AT2    89
+#define    _lcd_AT1    90
+#define    _lcd_AT0    91
+#define    _lcd_LOCK   95
+#define    _lcd_BELL   103
+#define    _lcd_COLON2   111
+#define    _lcd_BAT    119
+#define    _lcd_MAX    124
+#define    _lcd_MIN    125
+#define    _lcd_CH    126
+#define    _lcd_FAULT   127
+
+/*这里是我的测试板的IO口定义，用户可以根据需要修改
+p2.2 = data;
+p4.0 = cs;
+p4.1 = rd
+p4.2 = wr
+*/
+
+//下面是根据我的测试板情况定义的，用户可以需要修改
+#define CS_LOW    P4OUT &= 0xFE
+#define CS_HIGH   P4OUT |= 0x01
+#define RD_LOW    P4OUT &= 0xFD
+#define RD_HIGH   P4OUT |= 0x02
+#define WR_LOW    P4OUT &= 0xFB
+#define WR_HIGH   P4OUT |= 0x04
+
+#define DATA_LOW P2OUT &= 0xFB
+#define DATA_HIGH P2OUT |= 0x04
+
+//下面是驱动程序定义的一个显示缓冲区，共16个字节，128位
+unsigned int lcd_buffer[8]={0,0,0,0,0,0,0,0};
+
+//这个函数可以向HT1621B写入一个命令；用户可能需要在语句间增加必要的延时
+void send_lcd_command(unsigned char command)
+{
+   CS_LOW;
+   
+   WR_LOW;        //PRESENT 100 COMMAND CODE
+   DATA_HIGH;
+   WR_HIGH;
+   
+   WR_LOW;
+   DATA_LOW;
+   WR_HIGH;
+     
+   WR_LOW;
+   WR_HIGH;   
+   
+   for (unsigned short int i =0;i<=7;i++)
+    {
+       WR_LOW;
+       if ((command & 0x80) !=0) DATA_HIGH;
+        else DATA_LOW;
+       WR_HIGH;
+       command = command << 1;
+    }
+   
+   WR_LOW;
+   WR_HIGH;   
+   
+   CS_HIGH;
+}
+
+//这个函数可以向HT1621B写入一个数据；用户可能需要在语句间增加必要的延时
+void send_lcd_data(unsigned short int address,unsigned short int data)
+{
+CS_LOW;
+
+   WR_LOW;        //PRESENT 101 DATA CODE
+   DATA_HIGH;
+   WR_HIGH;
+   
+   WR_LOW;
+   DATA_LOW;
+   WR_HIGH; 
+   
+   WR_LOW;
+   DATA_HIGH;
+   WR_HIGH; 
+   
+   address = address << 2;
+   for (unsigned short int i =0;i<=5;i++)
+    {
+       WR_LOW;
+       if ((address & 0x80) !=0) DATA_HIGH;
+        else DATA_LOW;
+       WR_HIGH;
+       address = address << 1;
+    }
+   
+    for (unsigned short int i =0;i<=3;i++)
+    {
+       WR_LOW;
+       if ((data & 0x01) !=0) DATA_HIGH;
+        else DATA_LOW;
+       WR_HIGH;
+       data = data >> 1;
+    } 
+   
+   CS_HIGH;
+}
+//这个函数可以将显示缓冲区刷新到HT1621B；用户可能需要在语句间增加必要的延时
+void flood_lcd_data(void)
+{
+unsigned int temp_data;
+CS_LOW;
+
+   WR_LOW;        //PRESENT 101 DATA CODE
+   DATA_HIGH;
+   WR_HIGH;
+   
+   WR_LOW;
+   DATA_LOW;
+   WR_HIGH; 
+   
+   WR_LOW;
+   DATA_HIGH;
+   WR_HIGH; 
+   
+for (unsigned short int i =0;i<=5;i++)
+    {
+       WR_LOW;
+       DATA_LOW;
+       WR_HIGH;
+    }
+   
+for (unsigned short int i =0;i<=7;i++)
+    {
+      temp_data = lcd_buffer[i];
+      for (unsigned short int j=0;j<=15;j++)
+      {
+       WR_LOW;
+       if ((temp_data & 0x01) !=0) DATA_HIGH;
+        else DATA_LOW;
+       WR_HIGH;
+       temp_data = temp_data >> 1;
+      }
+    } 
+   
+   CS_HIGH;
+}
+
+//初始化HT1621B
+void lcd_init(void)
+{
+   send_lcd_command(0x28); //1/2bias，4comm
+   send_lcd_command(0x03); //启动内部振荡器
+   send_lcd_command(0x01); //打开显示
+}
+
+//向液晶写一个符号
+//name：可直接写0~127的整数，也可以写程序开始定义的标号，如：_lcd_BUSY
+//display：符号
+void lcd_char(unsigned short int name,unsigned short int display)
+{
+unsigned short int i,j;
+i= name/16;
+j= name%16;
+if (display == 1) lcd_buffer[i] |= 1<<j;
+else lcd_buffer[i] &= ~(1<<j);
+flood_lcd_data(); 
+
+}
+
+//清除全部液晶的显示，同时清空显示缓冲区
+void lcd_clr()
+{
+for (int i=0; i<=7;i++) lcd_buffer[i]=0;
+flood_lcd_data();   
+    
+}
+
+//向液晶的数位处写一个0~9的数 
+//数位为大数码的左至右为0~5，小数码的右至左为6~9；
+//number：想显示的数 0~9
+//position：显示的数位
+//display：显示开关，0 关闭该数位显示（此时number值无效），1 显示该数位数字
+void lcd_number(unsigned short int number,unsigned short int position,unsigned short int )
+{
+switch (position)
+{
+case 0:
+    {
+    if (display == 0) lcd_buffer[0] &= 0x10ff;
+    else 
+    {
+       lcd_buffer[0] &= 0x10ff;
+      switch (number)
+    {
+    case 0:lcd_buffer[0] |= 0xEB00;
+      break;
+    case 1:lcd_buffer[0] |= 0x6000;
+      break;
+    case 2:lcd_buffer[0] |= 0xC700;
+      break;
+    case 3:lcd_buffer[0] |= 0xE500;
+      break;
+    case 4:lcd_buffer[0] |= 0x6C00;
+      break;
+    case 5:lcd_buffer[0] |= 0xAD00;
+      break;
+    case 6:lcd_buffer[0] |= 0xAF00;
+      break;
+    case 7:lcd_buffer[0] |= 0xE000;
+      break;
+    case 8:lcd_buffer[0] |= 0xEF00;
+      break; 
+    case 9:lcd_buffer[0] |= 0xED00;
+      break;      
+    }}
+    break;
+    }
+case 1:
+    {
+    if (display == 0) lcd_buffer[0] &= 0xff10;
+    else 
+    {
+       lcd_buffer[1] &= 0xff10;
+      switch (number)
+    {
+    case 0:lcd_buffer[1] |= 0x00EB;
+      break;
+    case 1:lcd_buffer[1] |= 0x0060;
+      break;
+    case 2:lcd_buffer[1] |= 0x00C7;
+      break;
+    case 3:lcd_buffer[1] |= 0x00E5;
+      break;
+    case 4:lcd_buffer[1] |= 0x006C;
+      break;
+    case 5:lcd_buffer[1] |= 0x00AD;
+      break;
+    case 6:lcd_buffer[1] |= 0x00AF;
+      break;
+    case 7:lcd_buffer[1] |= 0x00E0;
+      break;
+    case 8:lcd_buffer[1] |= 0x00EF;
+      break; 
+    case 9:lcd_buffer[1] |= 0x00ED;
+      break;      
+    }}
+    break;
+    }
+case 2:
+     lcd_buffer[1] &= 0x0fff;
+     lcd_buffer[2] &= 0xfff1;
+
+     if (display == 0) break;
+    
+    else switch (number)
+    {
+    case 0:
+      lcd_buffer[1] |= 0xB000;
+      lcd_buffer[2] |= 0x000E;
+      break;
+    case 1:
+      lcd_buffer[2] |= 0x0006;
+      break;
+    case 2:
+      lcd_buffer[1] |= 0x7000;
+      lcd_buffer[2] |= 0x000C;
+      break;
+    case 3:
+      lcd_buffer[1] |= 0x5000;
+      lcd_buffer[2] |= 0x000E;
+      break;
+    case 4:
+       lcd_buffer[1] |= 0xC000;
+      lcd_buffer[2] |= 0x0006;
+      break;
+    case 5:
+      lcd_buffer[1] |= 0xD000;
+      lcd_buffer[2] |= 0x000A;
+      break;
+    case 6:
+      lcd_buffer[1] |= 0xF000;
+      lcd_buffer[2] |= 0x000A;
+      break;
+    case 7:
+      lcd_buffer[1] |= 0x0000;
+      lcd_buffer[2] |= 0x000E;
+      break;
+    case 8:
+      lcd_buffer[1] |= 0xF000;
+      lcd_buffer[2] |= 0x000E;
+      break; 
+    case 9:
+      lcd_buffer[1] |= 0xD000;
+      lcd_buffer[2] |= 0x000E;
+      break;      
+    }
+    break;
+case 3:
+    lcd_buffer[2] &= 0xF10F;
+    if (display == 0) break;
+    else switch (number)
+    {
+    case 0:lcd_buffer[2] |= 0x0EB0;
+      break;
+    case 1:lcd_buffer[2] |= 0x0600;
+      break;
+    case 2:lcd_buffer[2] |= 0x0C70;
+      break;
+    case 3:lcd_buffer[2] |= 0x0E50;
+      break;
+    case 4:lcd_buffer[2] |= 0x06C0;
+      break;
+    case 5:lcd_buffer[2] |= 0x0AD0;
+      break;
+    case 6:lcd_buffer[2] |= 0x0AF0;
+      break;
+    case 7:lcd_buffer[2] |= 0x0E00;
+      break;
+    case 8:lcd_buffer[2] |= 0x0EF0;
+      break; 
+    case 9:lcd_buffer[2] |= 0x0ED0;
+      break;      
+    }
+    break;
+case 4:
+    lcd_buffer[3] &= 0xFF10;
+    if (display == 0) break;
+    else switch (number)
+    {
+    case 0:lcd_buffer[3] |= 0x00EB;
+      break;
+    case 1:lcd_buffer[3] |= 0x0060;
+      break;
+    case 2:lcd_buffer[3] |= 0x00C7;
+      break;
+    case 3:lcd_buffer[3] |= 0x00E5;
+      break;
+    case 4:lcd_buffer[3] |= 0x006C;
+      break;
+    case 5:lcd_buffer[3] |= 0x00AD;
+      break;
+    case 6:lcd_buffer[3] |= 0x00AF;
+      break;
+    case 7:lcd_buffer[3] |= 0x00E0;
+      break;
+    case 8:lcd_buffer[3] |= 0x00EF;
+      break; 
+    case 9:lcd_buffer[3] |= 0x00ED;
+      break;      
+    }
+    break;
+case 5:
+    lcd_buffer[3] &= 0x10FF;
+    if (display == 0) break;
+    else switch (number)
+    {
+    case 0:lcd_buffer[3] |= 0xEB00;
+      break;
+    case 1:lcd_buffer[3] |= 0x6000;
+      break;
+    case 2:lcd_buffer[3] |= 0xC700;
+      break;
+    case 3:lcd_buffer[3] |= 0xE500;
+      break;
+    case 4:lcd_buffer[3] |= 0x6C00;
+      break;
+    case 5:lcd_buffer[3] |= 0xAD00;
+      break;
+    case 6:lcd_buffer[3] |= 0xAF00;
+      break;
+    case 7:lcd_buffer[3] |= 0xE000;
+      break;
+    case 8:lcd_buffer[3] |= 0xEF00;
+      break; 
+    case 9:lcd_buffer[3] |= 0xED00;
+      break;      
+    }
+    break;
+case 6:
+     lcd_buffer[5] &= 0x8fff;
+     lcd_buffer[6] &= 0xfff0;
+
+     if (display == 0) break;
+    
+    else switch (number)
+    {
+    case 0:
+      lcd_buffer[5] |= 0x7000;
+      lcd_buffer[6] |= 0x000D;
+      break;
+    case 1:
+      lcd_buffer[5] |= 0x6000;
+      break;
+    case 2:
+      lcd_buffer[5] |= 0x3000;
+      lcd_buffer[6] |= 0x000E;
+      break;
+    case 3:
+      lcd_buffer[5] |= 0x7000;
+      lcd_buffer[6] |= 0x000A;
+      break;
+    case 4:
+      lcd_buffer[5] |= 0x6000;
+      lcd_buffer[6] |= 0x0003;
+      break;
+    case 5:
+      lcd_buffer[5] |= 0x5000;
+      lcd_buffer[6] |= 0x000B;
+      break;
+    case 6:
+      lcd_buffer[5] |= 0x5000;
+      lcd_buffer[6] |= 0x000F;
+      break;
+    case 7:
+      lcd_buffer[5] |= 0x7000;
+      lcd_buffer[6] |= 0x0000;
+      break;
+    case 8:
+      lcd_buffer[5] |= 0x7000;
+      lcd_buffer[6] |= 0x000F;
+      break; 
+    case 9:
+      lcd_buffer[5] |= 0x7000;
+      lcd_buffer[6] |= 0x000B;
+      break;      
+    }
+    break;
+case 7:
+    lcd_buffer[6] &= 0xF08F;
+    if (display == 0) break;
+    else switch (number)
+    {
+    case 0:lcd_buffer[6] |= 0x0D70;
+      break;
+    case 1:lcd_buffer[6] |= 0x0060;
+      break;
+    case 2:lcd_buffer[6] |= 0x0E30;
+      break;
+    case 3:lcd_buffer[6] |= 0x0A70;
+      break;
+    case 4:lcd_buffer[6] |= 0x0360;
+      break;
+    case 5:lcd_buffer[6] |= 0x0B50;
+      break;
+    case 6:lcd_buffer[6] |= 0x0F50;
+      break;
+    case 7:lcd_buffer[6] |= 0x0070;
+      break;
+    case 8:lcd_buffer[6] |= 0x0F70;
+      break; 
+    case 9:lcd_buffer[6] |= 0x0B70;
+      break;      
+    }
+    break;
+case 8:
+     lcd_buffer[6] &= 0x8fff;
+     lcd_buffer[7] &= 0xfff0;
+
+     if (display == 0) break;
+    
+    else switch (number)
+    {
+    case 0:
+      lcd_buffer[6] |= 0x7000;
+      lcd_buffer[7] |= 0x000D;
+      break;
+    case 1:
+      lcd_buffer[6] |= 0x6000;
+      break;
+    case 2:
+      lcd_buffer[6] |= 0x3000;
+      lcd_buffer[7] |= 0x000E;
+      break;
+    case 3:
+      lcd_buffer[6] |= 0x7000;
+      lcd_buffer[7] |= 0x000A;
+      break;
+    case 4:
+      lcd_buffer[6] |= 0x6000;
+      lcd_buffer[7] |= 0x0003;
+      break;
+    case 5:
+      lcd_buffer[6] |= 0x5000;
+      lcd_buffer[7] |= 0x000B;
+      break;
+    case 6:
+      lcd_buffer[6] |= 0x5000;
+      lcd_buffer[7] |= 0x000F;
+      break;
+    case 7:
+      lcd_buffer[6] |= 0x7000;
+      lcd_buffer[7] |= 0x0000;
+      break;
+    case 8:
+      lcd_buffer[6] |= 0x7000;
+      lcd_buffer[7] |= 0x000F;
+      break; 
+    case 9:
+      lcd_buffer[6] |= 0x7000;
+      lcd_buffer[7] |= 0x000B;
+      break;      
+    }
+    break;
+case 9:
+    lcd_buffer[7] &= 0xF08F;
+    if (display == 0) break;
+    else switch (number)
+    {
+    case 0:lcd_buffer[7] |= 0x0D70;
+      break;
+    case 1:lcd_buffer[7] |= 0x0060;
+      break;
+    case 2:lcd_buffer[7] |= 0x0E30;
+      break;
+    case 3:lcd_buffer[7] |= 0x0A70;
+      break;
+    case 4:lcd_buffer[7] |= 0x0360;
+      break;
+    case 5:lcd_buffer[7] |= 0x0B50;
+      break;
+    case 6:lcd_buffer[7] |= 0x0F50;
+      break;
+    case 7:lcd_buffer[7] |= 0x0070;
+      break;
+    case 8:lcd_buffer[7] |= 0x0F70;
+      break; 
+    case 9:lcd_buffer[7] |= 0x0B70;
+      break;      
+    }
+    break;
+}    
+flood_lcd_data(); 
+}
+ 
